@@ -6,7 +6,7 @@ class ModelZoo extends React.Component {
     super(props);
     this.mouseClick = this.mouseClick.bind(this);
     }
-    mouseClick(id) {
+    mouseClick(event, id) {
       this.refs.recognition.className = "hide";
       this.refs.detection.className = "hide";
       this.refs.retrieval.className = "hide";
@@ -14,7 +14,9 @@ class ModelZoo extends React.Component {
       this.refs.caption.className = "hide";
       this.refs.segmentation.className = "hide";
       this.refs.vqa.className = "hide";
-      if(id == "all") {
+      $('#sidebar-nav li a').removeClass();
+      event.currentTarget.className = "bold";
+      if (id == "all") {
         this.refs.recognition.className = " ";
         this.refs.detection.className = " ";
         this.refs.retrieval.className = " ";
@@ -22,28 +24,35 @@ class ModelZoo extends React.Component {
         this.refs.caption.className = " ";
         this.refs.segmentation.className = " ";
         this.refs.vqa.className = " ";
-      } else if(id == "recognition")
+      } 
+      else if (id == "recognition")
       {
           this.refs.recognition.className = " ";
-      } else if(id == "detection")
+      } 
+      else if (id == "detection")
       {  
           this.refs.detection.className = " ";
-      } else if(id == "retrieval")
+      } 
+      else if (id == "retrieval")
       {
           this.refs.retrieval.className = " ";
-      } else if(id == "seq2seq")
+      } 
+      else if (id == "seq2seq")
       {
           this.refs.seq2seq.className = " ";
-      } else if(id == "caption")
+      } 
+      else if (id == "caption")
       {
           this.refs.caption.className = " ";
-      } else if(id == "segmentation")
+      } 
+      else if (id == "segmentation")
       {
           this.refs.segmentation.className = " ";
-      } else if(id == "vqa")
+      } 
+      else if (id == "vqa")
       {
           this.refs.vqa.className = " ";
-      }          
+      }	  
     }
     
     componentDidMount() {
@@ -91,34 +100,34 @@ class ModelZoo extends React.Component {
       <div className="sidebar-content">
         <div id="wrapper" className="toggle" ref="wrapper1">
           <div id="sidebar-wrapper">
-            <ul className="sidebar-nav">
+            <ul id="sidebar-nav" className="sidebar-nav">
                 <div className="filterbar-container">
                   <input id="model-search-input" placeholder="Search for model"></input>
                   <i className="material-icons" id="model-search-icon">search</i>
                 </div>
               <li>
-                <a onClick={this.mouseClick.bind(this, "all")}>All</a>
+                <a className="bold" onClick={(event) => this.mouseClick(event, "all")}>All</a>
               </li>
               <li>
-                <a onClick={this.mouseClick.bind(this, "recognition")}>Recognition</a>
+                <a onClick={(event) => this.mouseClick(event, "recognition")}>Recognition</a>
               </li>
               <li>
-                <a onClick={this.mouseClick.bind(this, "detection")}>Detection</a>
+                <a onClick={(event) => this.mouseClick(event, "detection")}>Detection</a>
               </li>
               <li>
-                <a onClick={this.mouseClick.bind(this, "retrieval")}>Retrieval</a>
+                <a onClick={(event) => this.mouseClick(event, "retrieval")}>Retrieval</a>
               </li>
               <li>
-                <a onClick={this.mouseClick.bind(this, "seq2seq")}>Seq2Seq</a>
+                <a onClick={(event) => this.mouseClick(event, "seq2seq")}>Seq2Seq</a>
               </li>
               <li>
-                <a onClick={this.mouseClick.bind(this, "caption")}>Caption</a>
+                <a onClick={(event) => this.mouseClick(event, "caption")}>Caption</a>
               </li>
               <li>
-                <a onClick={this.mouseClick.bind(this, "segmentation")}>Segmentation</a>
+                <a onClick={(event) => this.mouseClick(event, "segmentation")}>Segmentation</a>
               </li>
               <li>
-                <a onClick={this.mouseClick.bind(this, "vqa")}>VQA</a>
+                <a onClick={(event) => this.mouseClick(event, "vqa")}>VQA</a>
               </li>
             </ul>
           </div>

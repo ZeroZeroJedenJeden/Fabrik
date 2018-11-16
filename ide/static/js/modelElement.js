@@ -11,7 +11,7 @@ class ModelElement extends React.Component {
           <div className="btn thumbnail text-center" onClick={() => this.props.importNet('sample'+this.props.framework, this.props.id)}>
           <img src={"/static/img/zoo/" + this.props.id + ".png"} />
             <div className="caption">
-              <h3>{this.props.displayName}</h3>
+              <h3 className="wordwrap">{this.props.displayName}</h3>
             </div>
           </div>
         </div>
